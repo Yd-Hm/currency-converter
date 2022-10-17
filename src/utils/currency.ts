@@ -1,4 +1,5 @@
-export const convert = (baseCurrency: any, targetCurrency: any, amount: any) => {
+
+export const convert = (baseCurrency:any, targetCurrency:any, amount:any) => {
 
   const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCurrency}/${targetCurrency}.json`
     
