@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import useOnClickOutside from "../hooks/useOnClickOutside";
 
+// create new object to refer Props
 interface IProps {
   label: string;
   value: string;
