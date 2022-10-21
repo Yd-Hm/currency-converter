@@ -37,12 +37,12 @@ const Select: React.FC<IProps> = ({ label, value, options, stateChanger }) => {
     setOpen(false);
   };
 
-  useOnClickOutside(ref, () => setOpen(false));
+  // useOnClickOutside(ref, () => setOpen(false));
 
   return (
     <div className="relative mt-1">
       <button
-        onClick={() => setOpen((open) => !open)}
+        onClick={() => setOpen((prev) => !prev)}
         type="button"
         className="group relative w-full cursor-default border-b bg-white pb-4 text-left hover:border-indigo-300 focus:border-indigo-600 sm:text-sm"
       >

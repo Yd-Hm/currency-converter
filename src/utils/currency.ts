@@ -1,12 +1,20 @@
 
-export const convert = (baseCurrency:any, targetCurrency:any, amount:any) => {
+
+export const  convert =async (baseCurrency:string, targetCurrency:string, amount:number) => {
 
   const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCurrency}/${targetCurrency}.json`
-    
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => data[targetCurrency] * amount)
-}
+
+    return await fetch(url)
+    // const data = await(resonse.json())
+    // console.log(data)
+    .then(response =>response.json())
+    .then(data => data[targetCurrency]*amount)
+    .catch((err) => {
+      console.log(err.message);
+   });
+  }
+
+
 
 export const getCurrencies = () => {
 

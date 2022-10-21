@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+interface IProps {
+  ref: any;
+  handler: (event: UIEvent) => void;
+}
 
-const useOnClickOutside = (ref: any, handler: any) => {
+const useOnClickOutside = ({ ref, handler }: IProps) => {
   useEffect(() => {
-    const listener = (event: any) => {
+    const listener = (event: UIEvent) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }

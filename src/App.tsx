@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import NavBar from "./components/NavBar";
 import Select from "./components/Select";
 import Footer from "./components/Footer";
 import { convert, getCurrencies } from "./utils/currency";
 
-const App = () => {
+const App: React.FC = () => {
   const [baseCurrency, setBaseCurrency] = useState<string>("eur");
   const [targetCurrency, setTargetCurrency] = useState<string>("usd");
-  const [amount, setAmount] = useState<any>("");
-  const [result, setResult] = useState<any>("");
+  const [amount, setAmount] = useState<number | any>(null);
+  const [result, setResult] = useState<number | any>(null);
 
   const options = getCurrencies();
 
   useEffect(() => {
     convert(baseCurrency, targetCurrency, amount).then((res) => {
+      // console.log(res);
+
       setResult(res);
     });
   }, [baseCurrency, targetCurrency, amount]);
